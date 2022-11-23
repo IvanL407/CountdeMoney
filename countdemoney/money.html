@@ -17,6 +17,7 @@
             valDimes = document.getElementById("dimeValue");
             numQuarters = document.getElementById("quarters");
             valQuarters = document.getElementById("quarterValue");
+            value = document.getElementById("totalValue");
         }
         function addPenny(numPennies)
         {
@@ -34,6 +35,7 @@
             }
             valOfPennies = penny * .01;
             display();
+            
         }
 
         function addNickel(numNickels)
@@ -41,6 +43,8 @@
             nickel = numNickels;
             nickel++;
             valOfNickels = nickel * .05;
+            valOfNickels = valOfNickels.toFixed(2);
+            
             display();
         }
         function subtractNickel(numNickels)
@@ -51,14 +55,61 @@
                 nickel = 0;
             }
             valOfNickels = nickel * .05;
+            valOfNickels = valOfNickels.toFixed(2);
             display();
         }
+
+        function addDime(numDimes)
+        {
+            dime = numDimes;
+            dime++;
+            valOfDimes = dime * .1;
+            valOfDimes = valOfDimes.toFixed(2);
+            display();
+        }
+        function subtractDime(numDimes)
+        {
+            dime = numDimes - 1;
+            if (dime < 0)
+            {
+                dime = 0;
+            }
+            valOfDimes = dime * .1;
+            valOfDimes = valOfDimes.toFixed(2);
+            display();
+        }
+
+        function addQuarter(numQuarters)
+        {
+            quarter = numQuarters;
+            quarter++;
+            valOfQuarters = quarter * .25;
+            
+            display();
+        }
+        function subtractQuarter(numQuarters)
+        {
+            quarter = numQuarters - 1;
+            if (quarter < 0)
+            {
+                quarter = 0;
+            }
+            valOfQuarters = quarter * .25;
+           
+            display();
+        }
+
         function display()
         {
             numPennies.innerHTML = penny;
             valPennies.innerHTML = valOfPennies;
             numNickels.innerHTML = nickel;
             valNickels.innerHTML = valOfNickels;
+            numDimes.innerHTML = dime;
+            valDimes.innerHTML = valOfDimes;
+            numQuarters.innerHTML = quarter;
+            valQuarters.innerHTML = valOfQuarters;
+            value.innerHTML = sum;
         }
     </script>
 </head>
@@ -70,11 +121,12 @@
     </button>
     <button onclick = "subtractPenny(numPennies.innerHTML);">
         Subtract Penny
-    </button>
+    </button> 
+
 
     <br></br>
     <br>Number of Nickels: <span id = "nickels">0</span></br>
-    <br>Value of Nickels: <span id = "nickelValue">0</span></br>
+    <br>Value of Nickels: $<span id = "nickelValue">0</span></br>
     <button onclick = "addNickel(numNickels.innerHTML);">
         Add Nickel
     </button>
@@ -82,24 +134,30 @@
         Subtract Nickel
     </button>
 
+
     <br></br>
-    <!--<br>Number of Dimes: <span id = "dimes">0</span></br>
-    <br>Value of Dimes: <span id = "dimeValue">0</span></br>
-    <button onclick = "addDime();">
+    <br>Number of Dimes: <span id = "dimes">0</span></br>
+    <br>Value of Dimes: $<span id = "dimeValue">0</span></br>
+    <button onclick = "addDime(numDimes.innerHTML);">
         Add Dime
     </button>
-    <button onclick = "subtractDime();">
+    <button onclick = "subtractDime(numDimes.innerHTML);">
         Subtract Dime
     </button>
 
+
     <br></br>
     <br>Number of Quarters: <span id = "quarters">0</span></br>
-    <br>Value of Quarters: <span id = "quarterValue">0</span></br>
-    <button onclick = "addQuarter();">
+    <br>Value of Quarters: $<span id = "quarterValue">0</span></br>
+    <button onclick = "addQuarter(numQuarters.innerHTML);">
         Add Quarter
     </button>
-    <button onclick = "subtractQuarter();">
+    <button onclick = "subtractQuarter(numQuarters.innerHTML);">
         Subtract Quarter
-    </button> -->
+    </button>
+    <br></br>
+
+    <br>Total Value: $<span id = "totalValue">0</span><br>
+
 </body>
 </html>
