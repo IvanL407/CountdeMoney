@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Ivan Luc, WebDev Period 7/8, 11/23/22, Count de Money-->
+    <script>
+        function initialize()
+        {
+            numPennies = document.getElementById("pennies");
+            valPennies = document.getElementById("pennieValue");
+            numNickels = document.getElementById("nickels");
+            valNickels = document.getElementById("nickelValue");
+            numDimes = document.getElementById("dimes");
+            valDimes = document.getElementById("dimeValue");
+            numQuarters = document.getElementById("quarters");
+            valQuarters = document.getElementById("quarterValue");
+            total = document.getElementById("sum");
+            valOfPennies = 0;
+            valOfNickels = 0;
+            valOfDimes = 0;
+            valOfQuarters = 0;
+        }
+        function addPenny(numPennies)
+        {
+            penny = numPennies;
+            penny++;
+            valOfPennies = penny * .01;
+            valOfPennies = valOfPennies.toFixed(2);
+            display();
+            
+        }
+        function subtractPenny(numPennies)
+        {
+            penny = numPennies - 1;
+            if (penny < 0)
+            {
+                penny = 0;
+            }
+            valOfPennies = penny * .01;
+            valOfPennies = valOfPennies.toFixed(2);
+            display();
+            
+        }
+
+        function addNickel(numNickels)
+        {
+            nickel = numNickels;
+            nickel++;
+            valOfNickels = nickel * .05;
+            valOfNickels = valOfNickels.toFixed(2);
+            display();
+            
+        }
+        function subtractNickel(numNickels)
+        {
+            nickel = numNickels - 1;
+            if (nickel < 0)
+            {
+                nickel = 0;
+            }
+            valOfNickels = nickel * .05;
+            valOfNickels = valOfNickels.toFixed(2);
+            display();
+            
+        }
+
+        function addDime(numDimes)
+        {
+            dime = numDimes;
+            dime++;
+            valOfDimes = dime * .1;
+            valOfDimes = valOfDimes.toFixed(2);
+            display();
+            
+        }
+        function subtractDime(numDimes)
+        {
+            dime = numDimes - 1;
+            if (dime < 0)
+            {
+                dime = 0;
+            }
+            valOfDimes = dime * .1;
+            valOfDimes = valOfDimes.toFixed(2);
+            display();
+            
+        }
+
+        function addQuarter(numQuarters)
+        {
+            quarter = numQuarters;
+            quarter++;
+            valOfQuarters = quarter * .25;
+            valOfQuarters = valOfQuarters.toFixed(2);
+            display(); 
+            
+        }
+        function subtractQuarter(numQuarters)
+        {
+            quarter = numQuarters - 1;
+            if (quarter < 0)
+            {
+                quarter = 0;
+            }
+            valOfQuarters = quarter * .25;
+            valOfQuarters = valOfQuarters.toFixed(2);
+            display();
+            
+        }
+        
+        function getTotal()
+        {
+            result = +valOfPennies + +valOfNickels + +valOfDimes + +valOfQuarters;
+            result = result.toFixed(2);
+            display();
+        }
+        
+
+        function display()
+        {    
+            numPennies.innerHTML = penny;
+            valPennies.innerHTML = valOfPennies;
+            numNickels.innerHTML = nickel;
+            valNickels.innerHTML = valOfNickels;
+            numDimes.innerHTML = dime;
+            valDimes.innerHTML = valOfDimes;
+            numQuarters.innerHTML = quarter;
+            valQuarters.innerHTML = valOfQuarters;           
+            total.innerHTML = result;
+        }
+    </script>
+</head>
+<body onload = "initialize();">
+    
+    
+    <br>Number of Pennies: <span id = "pennies">0</span></br>
+    <br>Value of Pennies: $<span id = "pennieValue">0</span></br>
+    <button onclick = "addPenny(numPennies.innerHTML);">
+        Add Penny
+    </button>
+    <button onclick = "subtractPenny(numPennies.innerHTML);">
+        Subtract Penny
+    </button> 
+
+    <br></br>
+    <br>Number of Nickels: <span id = "nickels">0</span></br>
+    <br>Value of Nickels: $<span id = "nickelValue">0</span></br>
+    <button onclick = "addNickel(numNickels.innerHTML);">
+        Add Nickel
+    </button>
+    <button onclick = "subtractNickel(numNickels.innerHTML);">
+        Subtract Nickel
+    </button>
+
+    <br></br>
+    <br>Number of Dimes: <span id = "dimes">0</span></br>
+    <br>Value of Dimes: $<span id = "dimeValue">0</span></br>
+    <button onclick = "addDime(numDimes.innerHTML);">
+        Add Dime
+    </button>
+    <button onclick = "subtractDime(numDimes.innerHTML);">
+        Subtract Dime
+    </button>
+
+    <br></br>
+    <br>Number of Quarters: <span id = "quarters">0</span></br>
+    <br>Value of Quarters: $<span id = "quarterValue">0</span></br>
+    <button onclick = "addQuarter(numQuarters.innerHTML);">
+        Add Quarter
+    </button>
+    <button onclick = "subtractQuarter(numQuarters.innerHTML);">
+        Subtract Quarter
+    </button>
+    <br></br>
+    <br>Total Value: $<span id = "sum">0</span></br>
+    <button onclick = "getTotal();">
+        Total
+    </button>
+    
+
+</body>
+</html>
